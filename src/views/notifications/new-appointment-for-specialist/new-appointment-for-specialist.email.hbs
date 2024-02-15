@@ -1,0 +1,39 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    New Appointment Booking - #{{appointment.identifier}}
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+      <tr>
+        <td class="h-dark-text-color h-h1">
+          You've been booked for a new appointment!
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          A patient just booked a visit on:
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td>
+          {{#> email-highlight-message }}
+            {{capitalize (format-date-time-range appointment.startAt appointment.endAt appointment.patient.timezone)}}
+          {{/email-highlight-message}}
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          Check your appointment schedule here:
+        </td>
+      </tr>
+      <tr><td height="30"></td></tr>
+    </table>
+    {{> email-button link="https://care.getlabs.com" label="Visit Getlabs Care"}}
+  {{~/content}}
+
+{{/extend}}

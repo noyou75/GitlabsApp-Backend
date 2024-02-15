@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file contains TwiML. See: https://www.twilio.com/docs/voice/twiml -->
+<Response>
+  <Pause length="1"/>
+  <Say loop="10" voice="Polly.Salli-Neural">
+    Your Getlabs security code is:
+    {{#each (split code '')}}
+      <s>{{this}}</s>
+    {{/each}}
+    Stay on the line to hear the code again, or hang up to complete the call.
+    <break time="1s"/>
+  </Say>
+  <Hangup/>
+</Response>

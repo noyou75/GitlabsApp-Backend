@@ -1,0 +1,17 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+      Your Getlabs security code.
+  {{~/content}}
+
+  {{#content "content"~}}
+      <table width="100%" {{> email-table-props}}>
+          <tr>
+              <td class="h-dark-text-color h-h1">
+                  🔑 Your Getlabs security code is {{splice code 3 '-'}}.
+              </td>
+          </tr>
+      </table>
+  {{~/content}}
+
+{{/extend}}

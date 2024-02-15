@@ -1,0 +1,31 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    Book your first at-home lab draw
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+      <tr>
+        <td class="h-dark-text-color h-h1">
+          Welcome to Getlabs!
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          Welcome to Getlabs! We can’t wait to show you how much better the experience is of getting your labs drawn at your home or office instead of going to a laboratory.
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          To book an appointment just go to <a href="https://getlabs.com" class="h-default-link">getlabs.com</a> and follow the steps. It takes about 2 minutes to book a visit. See you soon!
+        </td>
+      </tr>
+      <tr><td height="30"></td></tr>
+    </table>
+    {{> email-button link="https://app.getlabs.com/book" label="Book Visit"}}
+  {{~/content}}
+
+{{/extend}}

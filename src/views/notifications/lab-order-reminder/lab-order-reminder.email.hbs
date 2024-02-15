@@ -1,0 +1,37 @@
+{{#extend "email-layout"}}
+
+    {{#content "preheader"~}}
+        We haven’t yet received your lab order.
+    {{~/content}}
+
+    {{#content "content"~}}
+        <table width="100%" {{> email-table-props}}>
+            <tr>
+                <td class="h-dark-text-color h-h1">
+                    We haven't yet received your lab order.
+                </td>
+            </tr>
+            <tr><td height="20"></td></tr>
+            <tr>
+                <td class="h-medium-text-color h-default-text">
+                    Please ask your provider to send it by
+                    {{format-date cutoffDate "MMMM d, y" appointment.patient.timezone}} to avoid cancellation.
+                </td>
+            </tr>
+            <tr><td height="20"></td></tr>
+            <tr>
+                <td class="h-medium-text-color h-default-text">
+                    Our email is labs@getlabs.com and fax is 602-865-8338
+                </td>
+            </tr>
+            <tr><td height="20"></td></tr>
+            <tr>
+                <td class="h-medium-text-color h-default-text">
+                    If you need to make any changes, you can do so at
+                    <a href="https://getlabs.com" class="h-default-link">getlabs.com</a>.
+                </td>
+            </tr>
+        </table>
+    {{~/content}}
+
+{{/extend}}

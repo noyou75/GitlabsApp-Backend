@@ -1,0 +1,60 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    Reminder your Getlabs visit is
+    {{format-date-time-range appointment.startAt appointment.endAt appointment.patient.timezone}}
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+        <tr>
+          <td class="h-dark-text-color h-h1">
+            Appointment Reminder
+          </td>
+        </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          Hi there, quick reminder your Getlabs visit is on:
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td>
+          {{#> email-highlight-message }}
+            {{capitalize (format-date-time-range appointment.startAt appointment.endAt appointment.patient.timezone)}}
+            {{#withinHours appointment.startAt 2 false}}at {{appointment.patient.address.street}}, {{appointment.patient.address.city}}{{/withinHours}}
+          {{/email-highlight-message}}
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      {{#ifHasInsurance appointment.patient}}{{else}}
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          If you'd like us to provide your insurance information to the lab handling your testing, please visit
+          <a href="https://getlabs.com" class="h-default-link h-no-wrap">getlabs.com</a> to update your details.
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      {{/ifHasInsurance}}
+      {{#withinHours appointment.startAt 2 true}}
+      {{#if appointment.requiresFasting}}
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          Please remember you need to fast for at least 8 hours before the appointment.
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      {{/if}}
+      {{/withinHours}}
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          We may call or text if we have any questions. Please answer to avoid any delays or cancellation.
+        </td>
+      </tr>
+      <tr><td height="30"></td></tr>
+    </table>
+    {{> email-button link="https://getlabs.com" label="Visit Getlabs"}}
+  {{~/content}}
+
+{{/extend}}

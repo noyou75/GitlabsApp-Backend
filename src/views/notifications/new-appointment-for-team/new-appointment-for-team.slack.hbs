@@ -1,0 +1,13 @@
+:tada: *New Appointment* :tada:
+_Created on {{format-date appointment.createdAt "MMMM d, y 'at' h:mm a" "America/Los_Angeles"}} PST from IP {{ip}}_
+
+*Appointment ID:*
+>#{{appointment.identifier}}
+
+*Patient Initials:*
+>{{charAt appointment.patient.firstName 0}}. {{charAt appointment.patient.lastName 0}}.
+
+*Appointment Date/Time:*
+>{{format-date appointment.startAt "MMMM d, y 'at' h:mm a" appointment.patient.timezone}} Local Time
+
+For more information, see https://team.getlabs.com

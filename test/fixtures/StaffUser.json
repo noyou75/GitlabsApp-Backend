@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Support Staff User",
+    "email": "support-staff@getlabs.io",
+    "phoneNumber": "0000003333",
+    "timezone": "America/Los_Angeles",
+    "accessLevel": "support"
+  },
+  {
+    "name": "Admin Staff User",
+    "email": "admin-staff@getlabs.io",
+    "phoneNumber": "0000004444",
+    "timezone": "America/Los_Angeles",
+    "accessLevel": "admin"
+  }
+]

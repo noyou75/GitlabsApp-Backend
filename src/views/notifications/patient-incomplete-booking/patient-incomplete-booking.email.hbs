@@ -1,0 +1,29 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+      We're happy to help
+  {{~/content}}
+
+  {{#content "content"~}}
+      <table width="100%" {{> email-table-props}}>
+          <tr>
+              <td class="h-dark-text-color h-h1">
+                  Finish booking your visit - Save 15%
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-medium-text-color h-default-text">
+                  <p>
+                    Hi, we noticed you didn't finish booking your at-home lab appointment and we think you'll love Getlabs.
+                    <br>Please enjoy 15% off your first visit with promo code ALLSET.
+                  </p>
+                  <p>If you have any questions please call or text us at {{ glPhoneNumber }} or reply to this email. Thank you!</p>
+              </td>
+          </tr>
+          <tr><td height="30"></td></tr>
+      </table>
+      {{> email-button link="https://app.getlabs.com/book" label="Book Visit"}}
+  {{~/content}}
+
+{{/extend}}

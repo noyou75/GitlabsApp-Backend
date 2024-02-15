@@ -1,0 +1,25 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    Get started at care.getlabs.com
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+      <tr>
+        <td class="h-dark-text-color h-h1">
+          Your Getlabs Care account is ready!
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-dark-text-color h-default-text">
+          Congrats! Your Getlabs Care account is now ready! To get started, sign in at <a href="https://care.getlabs.com" class="h-default-link">care.getlabs.com</a>. For help, just call or text us at {{ glPhoneNumber }}.
+        </td>
+      </tr>
+      <tr><td height="30"></td></tr>
+    </table>
+    {{> email-button link="https://care.getlabs.com" label="Get Started"}}
+  {{~/content}}
+
+{{/extend}}

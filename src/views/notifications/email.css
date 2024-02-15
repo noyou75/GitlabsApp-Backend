@@ -1,0 +1,241 @@
+/**
+ * This stylesheet gets inlined with each html element that matches a rule in the email template.
+ *
+ * It is not included as an external stylesheet!
+ */
+
+body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  max-width: 640px;
+  font-family: sofia-pro, 'Gill Sans', Arial, sans-serif;
+}
+
+body, table, td, a {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+table, td {
+  mso-table-lspace: 0pt;
+  mso-table-rspace: 0pt;
+}
+
+table {
+  border-collapse: collapse !important;
+}
+
+td {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  transition: color 200ms;
+}
+
+.body {
+  background-color: #F3F4F5 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.l-outer-wrapper {
+  max-width: 640px;
+}
+
+.l-inner-wrapper {
+  max-width: 530px;
+}
+
+.h-mobile-edge {
+  width: 15px;
+}
+
+.h-mobile-show {
+  display: none;
+}
+
+.h-responsive-img {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+}
+
+.h-block {
+  display: block;
+}
+
+.c-main {
+  width: 640px;
+  background-color: #ffffff !important;
+}
+
+.h-spacer-2 {
+  font-size: 2px;
+  line-height: 2px;
+}
+
+.h-spacer-5 {
+  font-size: 5px;
+  line-height: 5px;
+}
+
+.h-spacer-10 {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.h-spacer-15 {
+  font-size: 15px;
+  line-height: 15px;
+}
+
+.h-h1 {
+  font-size: 34px;
+  line-height: 44px;
+  font-family: 'DM Serif Display', Georgia, "Times New Roman", serif;
+}
+
+.h-h6 {
+  font-size: 22px;
+  line-height: 32px;
+  font-family: 'DM Serif Display', Georgia, "Times New Roman", serif;
+}
+
+.h-xs-text {
+  font-family: sofia-pro, 'Gill Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 20px;
+  mso-line-height-rule: exactly;
+}
+
+.h-small-text {
+  font-family: sofia-pro, 'Gill Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  mso-line-height-rule: exactly;
+}
+
+.h-default-text {
+  font-family: sofia-pro, 'Gill Sans', Arial, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  mso-line-height-rule: exactly;
+}
+
+.h-xl-text {
+  font-family: sofia-pro, 'Gill Sans', Arial, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  mso-line-height-rule: exactly;
+}
+
+.h-regular-font-weight {
+  font-weight: 400;
+}
+
+.h-semi-bold-font-weight {
+  font-weight: 500;
+}
+
+.h-bold-font-weight {
+  font-weight: 700;
+}
+
+.h-dark-text-color {
+  color: #000000;
+}
+
+.h-medium-text-color {
+  color: #767676;
+}
+
+.h-light-text-color {
+  color: #C3C3C3;
+}
+
+.h-text-left-align {
+  text-align: left;
+}
+
+.h-text-center-align {
+  text-align: center;
+}
+
+.h-text-right-align {
+  text-align: right;
+}
+
+.h-no-wrap {
+  white-space: nowrap;
+}
+
+.h-default-link {
+  color: #DBAF82;
+}
+
+.h-medium-primary-link {
+  color: #767676;
+}
+
+.h-dark-primary-link {
+  color: #000000;
+}
+
+.preheader {
+  display: none;
+  font-size: 0px;
+  line-height: 0px;
+  max-height: 0px;
+  max-width: 0px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 7px 0;
+  font-family: sofia-pro, 'Gill Sans', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 46px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-decoration: none;
+  border: 0;
+}
+
+.cta-button-edge-left {
+
+}
+
+.cta-button-edge-right {
+
+}
+
+.c-mobile-header {
+  display: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 600px 130px;
+  width: 100%;
+  height: 130px;
+}
+
+.c-mobile-header__logo {
+  padding-top: 40px;
+  padding-left: 20px;
+}

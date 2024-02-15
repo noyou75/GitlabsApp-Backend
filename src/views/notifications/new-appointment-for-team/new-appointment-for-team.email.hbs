@@ -1,0 +1,71 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+      New Appointment - #{{appointment.identifier}}
+  {{~/content}}
+
+  {{#content "content"~}}
+      <table width="100%" {{> email-table-props}}>
+          <tr>
+              <td class="h-dark-text-color h-h1">
+                  New appointment - #{{appointment.identifier}}
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-medium-text-color h-default-text">
+                  A patient just booked a visit on:
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td>
+                {{#> email-highlight-message}}
+                  {{capitalize (format-date-time-range appointment.startAt appointment.endAt appointment.patient.timezone)}}
+                {{/email-highlight-message}}
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-medium-text-color h-default-text">
+                  See below for the patient's details:
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td>
+                  {{#> email-highlight-message }}
+                    <table width="100%" {{> email-table-props}}>
+                        <tr>
+                            <td>
+                                Patient Initials:
+                              {{charAt appointment.patient.firstName 0}}. {{charAt appointment.patient.lastName 0}}.
+                            </td>
+                        </tr>
+                        <tr><td height="20"></td></tr>
+                        <tr>
+                            <td>
+                                Booking source IP Address: {{ip}}
+                            </td>
+                        </tr>
+                        <tr><td height="20"></td></tr>
+                        <tr>
+                            <td>
+                                Lab Order Status: [Placeholder until the lab order changes are in prod]
+                            </td>
+                        </tr>
+                    </table>
+                  {{/email-highlight-message}}
+              </td>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-medium-text-color h-default-text">
+                  Check pending appointments here:
+              </td>
+          </tr>
+          <tr><td height="30"></td></tr>
+      </table>
+      {{> email-button link="https://team.getlabs.com" label="Visit Getlabs Team"}}
+  {{~/content}}
+
+{{/extend}}

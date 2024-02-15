@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <title>{{#block "subject"}}{{subject}}{{/block}}</title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="x-apple-disable-message-reformatting" />
+
+  <!--[if mso]>
+  <style>
+    .h-font { font-family: 'Gill Sans', Arial, sans-serif !important; }
+  </style>
+  <![endif]-->
+
+  <!-- The second comment tag is NOT a typo.  This is required in order to properly accommodate non-mso cases -->
+  <!--[if !mso]> <!-- -->
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap');
+    @import url('https://use.typekit.net/rgy4mlc.css');
+  </style>
+  <![endif]-->
+
+  <style type="text/css" data-embed>
+
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: none !important;
+      font-size: inherit !important;
+      font-family: inherit !important;
+      font-weight: inherit !important;
+      line-height: inherit !important;
+    }
+
+    .h-medium-primary-link:hover,
+    .h-dark-primary-link:hover {
+      color: #DBAF82 !important;
+    }
+
+    .h-default-link:hover {
+      text-decoration: underline !important;
+    }
+
+    @media screen and (max-width: 640px) {
+      .l-outer-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .c-main {
+        width: 100% !important;
+        border-radius: 0 !important;
+      }
+
+      .c-desktop-header {
+          width: 100% !important;
+      }
+
+      .h-mobile-hide {
+        display: none !important;
+      }
+
+      .h-mobile-show {
+        display: block !important;
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        max-height: none !important;
+      }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .c-desktop-header {
+            display: none !important;
+        }
+
+        .c-mobile-header {
+            display: table !important;
+        }
+
+        .c-bottom-box {
+            height: 50px !important;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+      .h-h1 {
+        font-size: 26px !important;
+        line-height: 33px !important;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+        .cta-button-container {
+            width: 100% !important;
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #F3F4F5 !important;
+        }
+
+        .c-main {
+            background-color: #ffffff !important;
+        }
+
+        .c-wrap-table {
+            background-color: #F3F4F5 !important;
+        }
+
+    }
+
+    [data-ogsc] body {
+        background-color: #F3F4F5 !important;
+    }
+
+    [data-ogsc] .c-main {
+        background-color: #ffffff !important;
+    }
+
+    [data-ogsc] .c-wrap-table {
+        background-color: #F3F4F5 !important;
+    }
+
+    [data-ogsb] body {
+        background-color: #F3F4F5 !important;
+    }
+
+    [data-ogsb] .c-main {
+        background-color: #ffffff !important;
+    }
+
+    [data-ogsb] .c-wrap-table {
+        background-color: #F3F4F5 !important;
+    }
+
+  </style>
+</head>
+<body class="body">
+<table width="100%" bgcolor="#f3f3f3" class="c-wrap-table" {{> email-table-props}}>
+<tr><td>
+
+<div class="preheader">{{#block "preheader"}}{{/block}}</div>
+
+<table align="center" width="640" class="c-desktop-header" {{> email-table-props}}>
+  <tr>
+    <td>
+      <a href="https://getlabs.com">
+        <img class="h-responsive-img h-block" src="{{ static-url 'email/v2/email-header-bg-desktop.png' }}"
+             alt="Getlabs Logo" width="640" height="130">
+      </a>
+    </td>
+  </tr>
+</table>
+
+<!-- The second comment tag is NOT a typo.  This is required in order to properly accommodate non-mso cases -->
+<!--[if !mso]> <!-- -->
+  <div class="c-mobile-header">
+    <div style="height: inherit; width: inherit; background: inherit; background-image: url({{static-url 'email/v2/email-header-bg-mobile.png'}})"></div>
+</div>
+<![endif]-->
+
+<table align="center" width="640" bgcolor="#ffffff" class="c-main" {{> email-table-props}}>
+  <tr><td colspan="3" height="40"></td></tr>
+  <tr>
+    <td class="h-mobile-hide"></td>
+    <td width="640" class="l-outer-wrapper">
+
+      <table align="center" width="100%" class="l-inner-wrapper" {{> email-table-props}}>
+        <tr>
+          <td width="15" class="h-mobile-edge"></td>
+          <td>
+            {{#block "content"}}{{/block}}
+          </td>
+          <td width="15" class="h-mobile-edge"></td>
+        </tr>
+      </table>
+
+    </td>
+    <td class="h-mobile-hide"></td>
+  </tr>
+  <tr><td colspan="3" height="70" class="c-bottom-box"></td></tr>
+</table>
+
+<table width="100%" {{> email-table-props}}>
+  <tr><td colspan="3" height="40"></td></tr>
+  <tr>
+    <td class="h-mobile-hide"></td>
+    <td width="640" class="l-outer-wrapper">
+
+      <table align="center" width="100%" {{> email-table-props}}>
+        <tr>
+          <td width="15" class="h-mobile-edge"></td>
+          <td align="center">
+
+            <table width="100%" height="47" {{> email-table-props}}>
+              <tr>
+                <td align="center">
+                  <img src="{{static-url 'email/v2/getlabs-email-icon.png'}}" alt="Getlabs Logo" width="27" height="27">
+                </td>
+              </tr>
+              <tr><td height="20"></td></tr>
+            </table>
+
+            <table width="100%" height="52" {{> email-table-props}}>
+              <tr>
+                <td align="center" class="h-dark-text-color h-h6">
+                  Need help? Call or text us at
+                  <a href="tel:{{ glPhoneNumber }}" class="h-large-text h-semi-bold-font-weight h-dark-primary-link">
+                    {{ glPhoneNumber }}
+                  </a>
+                </td>
+              </tr>
+              <tr><td height="20"></td></tr>
+            </table>
+
+            <table width="100%" height="44" {{> email-table-props}}>
+              <tr>
+                <td align="center">
+                  <a href="https://www.facebook.com/getlabs"
+                     class="h-medium-text-color h-small-text h-semi-bold-font-weight h-medium-primary-link">
+                    Facebook
+                  </a>
+                  <span class="h-medium-text-color h-bold-font-weight h-small-text">
+                    &nbsp;&middot;&nbsp;
+                  </span>
+                  <a href="https://instagram.com/getlabs"
+                     class="h-medium-text-color h-small-text h-semi-bold-font-weight h-medium-primary-link">
+                    Instagram
+                  </a>
+                  <span class="h-medium-text-color h-bold-font-weight h-small-text">
+                    &nbsp;&middot;&nbsp;
+                  </span>
+                  <a href="https://twitter.com/getlabs"
+                     class="h-medium-text-color h-small-text h-semi-bold-font-weight h-medium-primary-link">
+                    Twitter
+                  </a>
+                  <span class="h-medium-text-color h-bold-font-weight h-small-text">
+                    &nbsp;&middot;&nbsp;
+                  </span>
+                  <a href="https://linkedin.com/company/getlabs"
+                     class="h-medium-text-color h-small-text h-semi-bold-font-weight h-medium-primary-link">
+                    LinkedIn
+                  </a>
+                </td>
+              </tr>
+              <tr><td height="20"></td></tr>
+            </table>
+
+            <table width="100%" height="24" {{> email-table-props}}>
+              <tr>
+                <td align="center">
+                  <span class="h-medium-text-color h-small-text">
+                    &copy; {{ format-date null 'yyyy' }} Getlabs, Inc.
+                  </span>
+                  &nbsp;&nbsp;
+                  <a href="https://getlabs.com/privacy"
+                     class="h-medium-text-color h-small-text h-medium-primary-link">
+                    Privacy
+                  </a>
+                  <span class="h-medium-text-color h-bold-font-weight h-small-text">
+                    &nbsp;&middot;&nbsp;
+                  </span>
+                  <a href="https://getlabs.com/terms"
+                     class="h-medium-text-color h-small-text h-medium-primary-link">
+                    Terms
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+          <td width="15" class="h-mobile-edge"></td>
+        </tr>
+      </table>
+
+    </td>
+    <td class="h-mobile-hide"></td>
+  </tr>
+  <tr><td colspan="3" height="40"></td></tr>
+</table>
+
+</td></tr>
+</table>
+</body>
+</html>

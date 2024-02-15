@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Administrator",
+    "email": "admin@getlabs.io",
+    "phoneNumber": "4165588838",
+    "timezone": "America/Los_Angeles",
+    "accessLevel": "admin"
+  }
+]

@@ -1,0 +1,3 @@
+# This line specifies the getlabs-dev team as the code owner for this repository
+# and is required in order to automatically add code reviewers to each PR.
+* @getlabs-app/getlabs-dev

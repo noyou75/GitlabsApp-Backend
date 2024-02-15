@@ -1,0 +1,37 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+      To book a new visit, go to https://getlabs.com
+  {{~/content}}
+
+  {{#content "content"~}}
+      <table width="100%" {{> email-table-props}}>
+          <tr>
+              <td class="h-dark-text-color h-h1">
+                  {{#isIn patientReasons appointment.cancelReason}}We couldn't reach you and had to cancel{{else}}
+                      Your visit is now cancelled
+                  {{/isIn}}
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-medium-text-color h-default-text">
+                  Your Getlabs visit has been cancelled{{#isIn patientReasons appointment.cancelReason}} since we were
+                  unable to reach you{{/isIn}}. To book a new visit, simply go to
+                  <a href="https://getlabs.com" class="h-default-link">https://getlabs.com</a>
+              </td>
+          </tr>
+          {{#if isRefundable}}
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-medium-text-color h-default-text">
+                  Please expect a refund to show up on your credit card statement in 5-10 business days.
+              </td>
+          </tr>
+          {{/if}}
+          <tr><td height="30"></td></tr>
+      </table>
+      {{> email-button link="https://getlabs.com" label="Visit Getlabs"}}
+  {{~/content}}
+
+{{/extend}}

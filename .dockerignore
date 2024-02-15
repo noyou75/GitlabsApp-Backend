@@ -1,0 +1,24 @@
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Logs
+logs
+*.log
+
+# Version control
+.git
+
+# Docker stuff
+docker/
+Dockerfile
+
+# Code Editors
+.idea/
+*.iml
+.vscode

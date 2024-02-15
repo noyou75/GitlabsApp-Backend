@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+  <meta charset="utf-8"/>
+  <title>Patient Drop off Form - Getlabs</title>
+  <style type="text/css" media="print">
+    /* Load Montserrat font from Google Fonts and use that instead */
+    /* https://fonts.googleapis.com/css?family=Montserrat:400,500,600 */
+    @page {
+      size: letter;
+      margin: 0.25cm;
+
+      /*
+      @top-left {
+        content: element(top-left);
+      }
+
+      @top-right {
+        content: element(top-right);
+      }
+
+      @bottom-left {
+        margin: 10pt 0 0 0;
+        border-top: .25pt solid #74808D;
+        content: "Getlabs.com";
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12pt;
+        font-weight: 600;
+        color: #FF781D;
+      }
+
+      @bottom-right {
+        margin: 10pt 0 0 0;
+        border-top: .25pt solid #74808D;
+        font-family: 'Montserrat', sans-serif;
+        content: counter(page) " of " counter(pages);
+      }
+      */
+    }
+
+    *, *:before, *:after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100vh;
+    }
+
+    body {
+      font-family: sans-serif;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .bold {
+      font-weight: 700;
+    }
+
+    .dark {
+      color: #000;
+    }
+
+    .medium {
+      color: #666;
+    }
+
+    .light {
+      color: #ccc;
+    }
+
+    .pre {
+      white-space: pre-line;
+    }
+
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6cm;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 10pt;
+    }
+
+    footer p:not(:last-child) {
+      margin-bottom: 0.1cm;
+    }
+
+    .page {
+      counter-increment: page;
+      padding: 1cm 1.5cm;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: 99%;
+    }
+
+    .following-page-block {
+      text-align: center;
+      font-size: 10pt;
+      padding-bottom: 0.5cm;
+    }
+
+    .page-content {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-small {
+      font-size: 10pt;
+    }
+
+    .logo {
+    }
+
+    .page-title {
+      font-weight: 600;
+      color: #000;
+      font-size: 14pt;
+      margin-bottom: 0.5cm;
+      padding-bottom: 0.2cm;
+      border-bottom: 1pt solid #ccc;
+    }
+    .page-title p {
+      font-size: 14px;
+    }
+    .page-title .lab-title {
+      font-size: 14px;
+    }
+    .info-block {
+      margin-bottom: 0.25cm;
+      display: flex;
+      flex-direction: row;
+      align-items: start;
+      width: 100%;
+    }
+    .info-block-small {
+      margin-bottom: 0cm !important;
+    }
+    .info-block-label {
+      font-size: 10pt;
+      margin-right: 0.1cm;
+      align-self: center;
+    }
+
+    .info-block-data {
+      font-size: 10pt;
+      flex: 1;
+      align-self: center;
+    }
+
+    .info-block__stacked {
+      flex-direction: column;
+    }
+
+    .info-block__stacked .info-block-label {
+      margin-bottom: 0.1cm;
+      align-self: flex-start;
+    }
+
+    .info-block__stacked .info-block-data {
+      margin-bottom: 0.5cm;
+      width: 100%;
+      align-self: flex-start;
+    }
+
+    .info-block__stacked--no-margin .info-block-label,
+    .info-block__stacked--no-margin .info-block-data {
+      margin-bottom: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      table-layout: auto;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    table th, table td {
+      padding: 0.25cm;
+      height: 0.9cm;
+    }
+
+    table td:first-child {
+      width: 3.5cm;
+    }
+
+    table.samples {
+      width: 100%;
+    }
+
+
+    .note-lines {
+      display: block;
+      width: 100%;
+      height: 70px;
+      background-image: repeating-linear-gradient(to bottom,
+      transparent,
+      transparent 34px,
+      #ccc 34px,
+      #ccc 35px);
+      background-size: auto 35px;
+      background-position: 0 -5px;
+    }
+
+    .note-lines--single {
+      height: 35px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    .insurance-img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .insurance-img img {
+      max-width: 100%;
+      max-height: 6.5cm;
+    }
+
+    .insurance-img .not-provided {
+      display: flex;
+      height: 4cm;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .insurance-spacer {
+      height: 2cm;
+    }
+
+    .lab-document {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lab-document img {
+      max-width: 90%;
+      max-height: 18.7cm;
+      border: 1px solid black;
+    }
+    .float-left {
+      float: left;
+    }
+    .float-right {
+      float: right;
+    }
+    .text-right {
+      text-align: right;
+    }
+    .text-center {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+{{#*inline "header"}}
+  <header>
+    <img src="{{@root.logo}}" width="89" height="20" alt="Getlabs Logo"/>
+    {{#if (ifThen totalLabOrders (comparator  totalLabOrders '>' 1))}}
+      <p class="header-small light">
+        Lab Order #{{math currentIdx "+" 1}} of {{totalLabOrders}}
+      </p>
+    {{/if}}
+    <p class="page-indicator header-small light"></p>
+  </header>
+{{/inline}}
+
+{{#*inline "footer"}}
+  <footer>
+    <p class="light text-center"><strong>Need help?</strong> Call or text us at (480) 690-7880</p>
+  </footer>
+{{/inline}}
+
+{{#*inline "following-document"}}
+  {{#if document}}
+    {{#if (comparator (math pageIndex '+' 1) '===' pages)}}
+      <div class="following-page-block">
+        This page is followed by the {{document}} document
+      </div>
+    {{/if}}
+  {{/if}}
+{{/inline}}
+
+{{#each labOrders}}
+  <section class="page">
+    {{> header}}
+    <div class="page-content">
+      {{#with ../appointment}}
+        <h1 class="page-title">Patient Sample Drop Off - #{{identifier}}</h1>
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Full Name:
+          </span>
+          <span class="info-block-data bold dark">
+            {{patient.name}}
+          </span>
+        </div>
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Date of Birth:
+          </span>
+          <span class="info-block-data bold dark">
+            {{date patient.dob}}
+            {{#if patient.isMinor}}
+              - Minor
+            {{/if}}
+          </span>
+        </div>
+        {{#if patient.isMinor}}
+          <div class="info-block">
+            <span class="info-block-label medium">
+              Guardian Name:
+            </span>
+            <span class="info-block-data bold dark">
+              {{patient.guardianName}}
+            </span>
+          </div>
+          <div class="info-block">
+            <span class="info-block-label medium">
+              Guardian Relationship:
+            </span>
+            <span class="info-block-data bold dark">
+              {{patient.guardianRelationship}}
+            </span>
+          </div>
+        {{/if}}
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Address:
+          </span>
+          <span class="info-block-data bold dark">
+            {{patient.address.composed}}
+            {{#if ../../isAddressLab}}
+              (Potential Lab Address)
+            {{/if}}
+          </span>
+        </div>
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Email:
+          </span>
+          <span class="info-block-data bold dark">
+            {{patient.email}}
+          </span>
+        </div>
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Phone:
+          </span>
+          <span class="info-block-data bold dark">
+            {{phone patient.phoneNumber}}
+          </span>
+        </div>
+
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Doctor's Name:
+          </span>
+          <span class="info-block-data bold dark">
+            {{../labOrderDetails.contactName}}
+          </span>
+        </div>
+
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Doctor's Phone Number:
+          </span>
+          <span class="info-block-data bold dark">
+            {{phone ../labOrderDetails.contactPhone}}
+          </span>
+        </div>
+
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Insurance:
+          </span>
+          <span class="info-block-data bold dark">
+            {{#ifHasInsurance patient}}
+              Yes, next page
+            {{else}}
+              None provided
+            {{/ifHasInsurance}}
+          </span>
+        </div>
+
+        {{#each ../../labAccountCode}}
+          <div class="info-block">
+            <span class="info-block-label medium">
+              {{company}}:
+            </span>
+            <span class="info-block-data bold dark">
+              {{accountNumber}}
+            </span>
+          </div>
+        {{/each}}  
+
+        <div class="info-block info-block__stacked">
+          <span class="info-block-label medium">
+            Samples:
+          </span>
+          <span class="info-block-data">
+            <table class="samples">
+              <tr>
+                <th>Quantity</th>
+                <th>Container Type</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </span>
+        </div>
+
+        <div class="info-block info-block__stacked info-block__stacked--no-margin">
+          <span class="info-block-label medium">
+            Notes (optional):
+          </span>
+          <span class="info-block-data">
+            <span class="note-lines"></span>
+          </span>
+        </div>
+
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Collection Date & Time:
+          </span>
+          <span class="info-block-data">
+            <span class="note-lines note-lines--single"></span>
+          </span>
+        </div>
+
+        <div class="info-block">
+          <span class="info-block-label medium">
+            Phlebotomist Initials:
+          </span>
+          <span class="info-block-data">
+            <span class="note-lines note-lines--single" style="width: 2cm;"></span>
+          </span>
+        </div>
+      {{/with}}
+    </div>
+    {{> footer}}
+  </section>
+
+  {{#ifHasInsurance ../appointment.patient}}
+    <section class="page">
+      {{> header}}
+      <div class="page-content">
+        <h1 class="page-title">Insurance Front</h1>
+        <div class="insurance-img">
+          {{#if insurance.front}}
+            <img src="{{insurance.front}}" alt="Patient Insurance Card - Front">
+          {{else}}
+            <span class="not-provided light">Not provided</span>
+          {{/if}}
+        </div>
+        <div class="insurance-spacer"></div>
+        <h1 class="page-title">Insurance Back</h1>
+        <div class="insurance-img">
+          {{#if insurance.rear}}
+            <img src="{{insurance.rear}}" alt="Patient Insurance Card - Back">
+          {{else}}
+            <span class="not-provided light">Not provided</span>
+          {{/if}}
+        </div>
+      </div>
+      {{> footer}}
+    </section>
+  {{/ifHasInsurance}}
+
+  {{#each labOrderDocuments.labOrderPages}}
+    <section class="page abn">
+      {{> header totalLabOrders=(length ../../labOrders) currentIdx=@../index}}
+      <div class="page-content">
+        <div class="page-title" style="clear:both;">
+          <p class="float-left"><span class="lab-title">Lab Order</span> - Page {{math @index "+" 1}} of {{length
+                ../labOrderDocuments.labOrderPages}}</p>
+          {{#each ../../labAccountCode}}
+              <p class="float-right"><span class="lab-title">{{company}}:</span> {{accountNumber}}</p>
+          {{/each}}        
+        </div>
+        <div class="lab-document">
+          <img src="{{this}}"
+               alt="Lab Order - Page {{math @index "+" 1}} of {{length ../labOrderDocuments.labOrderPages}}"/>
+        </div>
+      </div>
+      <div class="info-block info-block-small">
+        <span class="info-block-label medium">
+          Notes (optional):
+        </span>
+        <span class="info-block-data">
+          <span class="note-lines note-lines--single"></span>
+        </span>
+      </div>
+      <div class="info-block info-block-small">
+        <span class="info-block-data">
+          <span class="note-lines note-lines--single"></span>
+        </span>
+      </div>
+      <div class="info-block">
+        <span class="info-block-label medium">
+          Collection Date & Time:
+        </span>
+        <span class="info-block-data">
+          <span class="note-lines note-lines--single"></span>
+        </span>
+      </div>
+      {{> following-document document=(getFirst (ifThen ../labOrderDocuments.abnDocumentPages 'ABN') (ifThen ../labOrderDocuments.accuDrawPages 'AccuDraw')) pageIndex=@index pages=(length ../labOrderDocuments.labOrderPages)}}
+      {{> footer}}
+    </section>
+  {{/each}}
+
+  {{#each labOrderDocuments.abnDocumentPages}}
+    <section class="page abn">
+      {{> header totalLabOrders=(length ../../labOrders) currentIdx=@../index}}
+      <div class="page-content">
+        <h1 class="page-title">Advance Beneficiary Notice of Noncoverage - Page {{math @index "+" 1}}
+          of {{length ../labOrderDocuments.abnDocumentPages}}</h1>
+        <div class="lab-document">
+          <img src="{{this}}"
+               alt="Advance Beneficiary Notice of Noncoverage - Page {{math @index "+" 1}} of {{length
+                       ../labOrderDocuments.abnDocumentPages}}"/>
+        </div>
+      </div>
+      {{> following-document document=(ifThen ../labOrderDocuments.accuDrawPages 'AccuDraw') pageIndex=@index pages=(length ../labOrderDocuments.abnDocumentPages)}}
+      {{> footer}}
+    </section>
+  {{/each}}
+
+  {{#each labOrderDocuments.accuDrawPages}}
+    <section class="page accudraw">
+      {{> header totalLabOrders=(length ../../labOrders) currentIdx=@../index}}
+      <div class="page-content">
+        <h1 class="page-title">AccuDraw - Page {{math @index "+" 1}}
+          of {{length ../labOrderDocuments.accuDrawPages}}</h1>
+        <div class="lab-document">
+          <img src="{{this}}"
+               alt="AccuDraw - Page {{math @index "+" 1}} of {{length ../labOrderDocuments.accuDrawPages}}"/>
+        </div>
+      </div>
+      {{> footer}}
+    </section>
+  {{/each}}
+{{/each}}
+
+<script type="text/javascript">
+  const elements = document.getElementsByClassName('page-indicator');
+
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].innerText = 'Page ' + (i + 1) + ' of ' + elements.length;
+  }
+</script>
+
+</body>
+</html>

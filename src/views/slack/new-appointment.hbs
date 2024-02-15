@@ -1,0 +1,12 @@
+:tada: *NEW APPOINTMENT* :tada:
+
+*Appointment ID:* #{{appointment.identifier}}
+*Patient:* {{charAt appointment.patient.firstName 0}}. {{charAt appointment.patient.lastName 0}}. ({{ip}})
+*New/Returning Patient*: {{#if transactionDetails.isReturningPatient}}Returning{{else}}New{{/if}}
+*Appointment Date/Time:* {{format-date appointment.startAt "MMMM d, y 'at' h:mm aaaa zzz" appointment.patient.timezone}}
+*Priority Slot:* {{#if transactionDetails.isPrioritySlot}}Yes{{else}}No{{/if}}
+*City:* {{appointment.patient.address.city}}, {{appointment.patient.address.state}} - {{appointment.patient.address.serviceArea.market.code}} ({{appointment.patient.address.zipCode}})
+*Promo Code:* {{#if appointment.coupon}}{{appointment.coupon.code}}{{else}}N/A{{/if}}
+*Amount Paid:* {{currency (math transactionDetails.amountPaid '/' 100)}}
+
+{{appointmentUrl}}

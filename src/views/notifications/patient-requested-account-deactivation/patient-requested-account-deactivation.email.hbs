@@ -1,0 +1,25 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    Thank you for trying Getlabs.
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+      <tr>
+        <td class="h-dark-text-color h-h1">
+          Your account has been deactivated
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          Your Getlabs account has been deactivated. We're sorry to see you go. If you want to try us again in the future please contact us at <a href="https://getlabs.com/" class="h-default-link h-no-wrap">getlabs.com</a> to reactivate your account.
+        </td>
+      </tr>
+      <tr><td height="30"></td></tr>
+    </table>
+    {{> email-button link="https://getlabs.com" label="Visit Getlabs"}}
+  {{~/content}}
+
+{{/extend}}

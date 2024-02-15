@@ -1,0 +1,26 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+      Visit care.getlabs.com for your current schedule.
+  {{~/content}}
+
+  {{#content "content"~}}
+      <table width="100%" {{> email-table-props}}>
+          <tr>
+              <td class="h-dark-text-color h-h1">
+                  One of your appointments was cancelled.
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-medium-text-color h-default-text">
+                  Your appointment for {{format-date-time-range appointment.startAt appointment.endAt appointment.specialist.timezone}}
+                  was cancelled. Check your schedule at <a href="https://care.getlabs.com" class="h-default-link">care.getlabs.com</a>
+              </td>
+          </tr>
+          <tr><td height="30"></td></tr>
+      </table>
+      {{> email-button link="https://care.getlabs.com" label="Visit Getlabs Care"}}
+  {{~/content}}
+
+{{/extend}}

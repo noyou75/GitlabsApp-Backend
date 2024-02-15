@@ -1,0 +1,23 @@
+{{#extend "email-layout"}}
+
+    {{#content "preheader"~}}
+        We didn't receive your lab order in time
+    {{~/content}}
+
+    {{#content "content"~}}
+        <table width="100%" {{> email-table-props}}>
+            <tr>
+                <td class="h-medium-text-color h-h1">
+                    Your appointment has been cancelled, as we didn't receive your lab order in time.
+                </td>
+            </tr>
+            <tr><td height="20"></td></tr>
+            <tr>
+                <td class="h-medium-text-color h-default-text">
+                    To rebook, visit <a href="https://getlabs.com" class="h-default-link">getlabs.com</a>.
+                </td>
+            </tr>
+        </table>
+    {{~/content}}
+
+{{/extend}}

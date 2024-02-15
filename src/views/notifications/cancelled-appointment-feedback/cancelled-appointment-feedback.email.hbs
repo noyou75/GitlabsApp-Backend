@@ -1,0 +1,34 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    Feedback was left for a cancelled appointment.
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+      <tr>
+        <td class="h-dark-text-color h-h1">
+          Cancelled Appointment Feedback
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          {{ appointment.patient.name }}
+          (
+            {{~#if appointment.patient.email}}<a href="mailto:{{appointment.patient.email}}">{{appointment.patient.email}}</a>/{{/if~}}
+            {{~phone appointment.patient.phoneNumber~}}
+          )
+          cancelled an appointment and left the following feedback:
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text pre">
+          {{~feedback~}}
+        </td>
+      </tr>
+    </table>
+  {{~/content}}
+
+{{/extend}}

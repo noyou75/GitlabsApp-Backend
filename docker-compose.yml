@@ -1,0 +1,70 @@
+version: '3'
+services:
+  router:
+    image: traefik:1.7.26-alpine
+    container_name: getlabs-router
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./docker/router/config.toml:/etc/traefik/traefik.toml:ro
+      - ./docker/router/acme.json:/etc/traefik/acme/acme.json
+      - ${GCP_CREDENTIALS:?GCP credentials required}:/var/tmp/gcp-credentials.json
+    ports:
+      - '80:80'
+      - '8080:8080'
+      - '443:443'
+    environment:
+      - GCE_PROJECT=getlabs-development
+      - GOOGLE_APPLICATION_CREDENTIALS=/var/tmp/gcp-credentials.json
+
+  proxy:
+    image: nginx:alpine
+    container_name: getlabs-proxy
+    volumes:
+      - ./docker/proxy/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/proxy/proxy_params:/etc/nginx/proxy_params
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.frontend.rule=Host:${DOMAIN},app.${DOMAIN}'
+      - 'traefik.port=80'
+
+  api:
+    build: .
+    container_name: getlabs-api
+    command: yarn start:dev
+    ports:
+      - '9229:9229' # Node Debugger
+      - '9222:9222' # Chromium Debugger
+    volumes:
+      - ./:/app:delegated
+      - ${GCP_CREDENTIALS:?GCP credentials required}:/var/tmp/gcp-credentials.json
+
+      # Canvas has arch specific directories, so skip mounting those
+      - /app/node_modules/canvas/build/
+    environment:
+      - TSC_NONPOLLING_WATCHER="1"
+      - NODE_ENV=development
+      - GOOGLE_APPLICATION_CREDENTIALS=/var/tmp/gcp-credentials.json
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.frontend.rule=Host:api.${DOMAIN}'
+      - 'traefik.port=3000'
+    depends_on:
+      - router
+      - db
+      - cache
+
+  db:
+    build: ./docker/db
+    container_name: getlabs-db
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=getlabs
+      - POSTGRES_PASSWORD=P@ssw0rd
+      - POSTGRES_DB=app
+
+  cache:
+    build: ./docker/cache
+    container_name: getlabs-cache
+    ports:
+      - '6379:6379'

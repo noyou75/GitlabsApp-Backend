@@ -1,0 +1,45 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+      Labcorp Daily Appointments Report
+  {{~/content}}
+
+  {{#content "content"~}}
+      <table width="100%" {{> email-table-props}}>
+          <tr>
+              <td class="h-dark-text-color h-h1">
+                  Labcorp Daily Appointments Report for {{format-date date "M/d"}} is Now Ready
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-dark-text-color h-default-text">
+                The Labcorp daily appointments report for {{format-date date "MMMM d, y"}} is now ready. You can access
+                the report at the below link. Note that this link will expire on
+                {{format-date expiry "MMMM d, y" tz}} at {{format-date expiry "h:mm a zzz" tz}}. If you require access to
+                this report after the below link has expired, please contact us.
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td class="h-default-text">
+                {{> email-button link=link label="ACCESS REPORT"}}
+              </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+            <td>
+              Alternatively, you can click or copy/paste the following URL into your browser: <br />
+              <a href="{{link}}">{{link}}</a>
+            </td>
+          </tr>
+          <tr><td height="20"></td></tr>
+          <tr>
+              <td>
+                  {{> email-external-disclaimer}}
+              </td>
+          </tr>
+      </table>
+  {{~/content}}
+
+{{/extend}}

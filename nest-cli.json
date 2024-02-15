@@ -1,0 +1,16 @@
+{
+  "language": "ts",
+  "collection": "@nestjs/schematics",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "assets": [
+      { "include":  "/views/**/*.hbs", "outDir": "dist/src" }
+    ],
+    "watchAssets": true
+  },
+  "projects": {
+    "worker": {
+      "entryFile": "worker"
+    }
+  }
+}

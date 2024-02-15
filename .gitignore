@@ -1,0 +1,24 @@
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+
+# dotenv environment variables file
+.env
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Logs
+logs
+*.log
+
+# Code Editors
+/.idea
+/*.iml
+/.vscode
+
+# Misc
+.DS_Store
+Thumbs.db

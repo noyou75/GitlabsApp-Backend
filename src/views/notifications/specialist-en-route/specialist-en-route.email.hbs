@@ -1,0 +1,41 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    See you soon!
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+      <tr>
+        <td class="h-dark-text-color h-h1">
+          Your specialist is on the way
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+          <td>
+            {{#> email-highlight-message }}
+              {{capitalize (format-date-time-range appointment.startAt appointment.endAt appointment.patient.timezone)}}
+            {{/email-highlight-message}}
+          </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          Your Getlabs specialist, {{appointment.specialist.firstName}}, is on the way for your visit. Feel free to ask for their Getlabs badge before starting your appointment.
+        </td>
+      </tr>
+      {{#if appointment.requiresFasting}}
+        <tr><td height="20"></td></tr>
+        <tr>
+          <td class="h-medium-text-color h-default-text">
+            Additionally, please remember you need to have fasted for at least 8 hours before the appointment.
+          </td>
+        </tr>
+      {{/if}}
+      <tr><td height="30"></td></tr>
+    </table>
+    {{> email-button link="https://getlabs.com" label="Visit Getlabs"}}
+  {{~/content}}
+
+{{/extend}}

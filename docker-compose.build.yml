@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  api:
+    image: gcr.io/getlabs-admin/getlabs-api:manual-${TAG:-latest}
+    build:
+      context: .
+      args:
+        version: ${VERSION-}
+        sentry_auth_token: ${SENTRY_AUTH_TOKEN-}
+    ports:
+      - '3000:3000'

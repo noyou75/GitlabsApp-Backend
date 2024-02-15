@@ -1,0 +1,34 @@
+{{#extend "email-layout"}}
+
+  {{#content "preheader"~}}
+    New Contact Request from {{ name }}
+  {{~/content}}
+
+  {{#content "content"~}}
+    <table width="100%" {{> email-table-props}}>
+      <tr>
+        <td class="h-dark-text-color h-h1">
+          Contact Request
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text">
+          {{ name }}
+          (
+            {{~#if email}}<a href="mailto:{{email}}">{{email}}</a>/{{/if~}}
+            {{~phone phoneNumber~}}
+          )
+          left a message:
+        </td>
+      </tr>
+      <tr><td height="20"></td></tr>
+      <tr>
+        <td class="h-medium-text-color h-default-text pre">
+          {{~message~}}
+        </td>
+      </tr>
+    </table>
+  {{~/content}}
+
+{{/extend}}
